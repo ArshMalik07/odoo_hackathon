@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Food Item</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='add_food.css') }}">
     
 </head>
 <body>
@@ -51,6 +52,7 @@
             </div>
             <button type="submit" class="btn btn-primary">Add Food</button>
         </form>
+        <p><a href="{{ url_for('home') }}">Cancel</a></p>
     </div>
 </body>
 </html>
