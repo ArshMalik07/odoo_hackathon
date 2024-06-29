@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Profile</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='add_food.css') }}">
 </head>
 <body>
     <h2>Update Profile</h2>
@@ -40,6 +41,6 @@
         
         <button type="submit">Update Profile</button>
     </form>
-    <p><a href="{{ url_for('user_profile') }}">Cancel</a></p>
+    <p><a href="{{ url_for('home') }}">Cancel</a></p>
 </body>
 </html>
