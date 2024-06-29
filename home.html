@@ -4,22 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <link rel="stylesheet" href="\static\home.css">
 </head>
 <body>
     <h2>Welcome to Diet Planner</h2>
     
     {% if 'username' in session %}
         <p>Hello, {{ session['username'] }}!</p>
-        <p><a href="{{ url_for('user_profile') }}">View Profile</a></p>
-        <p><a href="{{ url_for('update_profile') }}">update_profile</a></p>
-        <p><a href="{{ url_for('search_foods') }}">Search Food</a></p>
-        <p><a href="{{ url_for('manage_foods') }}">Manage food</a></p>
-        <p><a href="{{ url_for('meal_plans') }}">View Meal Plans</a></p>
-        <p><a href="{{ url_for('add_food') }}">Add Food</a></p>
-        <p><a href="{{ url_for('logout') }}">Logout</a></p>
+        <p class="z"><a href="{{ url_for('user_profile') }}">View Profile</a></p>
+        <p class="z"><a href="{{ url_for('update_profile') }}">update_profile</a></p>
+        <p class="z"><a href="{{ url_for('search_foods') }}">Search Food</a></p>
+        <p class="z"><a href="{{ url_for('manage_foods') }}">Manage food</a></p>
+        <p class="z"><a href="{{ url_for('meal_plans') }}">View Meal Plans</a></p>
+        <p class="z"><a href="{{ url_for('add_food') }}">Add Food</a></p>
+        <p class="z logout"><a href="{{ url_for('logout') }}">Logout</a></p>
     {% else %}
-        <p><a href="{{ url_for('login') }}">Login</a></p>
-        <p><a href="{{ url_for('register') }}">Register</a></p>
+        <p class="login"><a href="{{ url_for('login') }}">Login</a></p>
+        <p class="login"><a href="{{ url_for('register') }}">Register</a></p>
     {% endif %}
 </body>
 </html>
