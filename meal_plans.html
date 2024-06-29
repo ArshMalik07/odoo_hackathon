@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meal Plans</title>
+    <link rel="stylesheet" href="static\meal.css">
 </head>
 <body>
     <h2>Meal Plans</h2>
     
     {% if 'username' in session %}
         <h3>Hello, {{ user.username }}!</h3>
+        <h3>Here is your meal plan</h3>
 
         <!-- Daily Meal Plan -->
         <h4>Daily Meal Plan</h4>
