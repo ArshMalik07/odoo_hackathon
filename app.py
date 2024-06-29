@@ -52,7 +52,9 @@ cursor.execute('''CREATE TABLE IF NOT EXISTS foods (
     fat DECIMAL(5, 2),
     carbs DECIMAL(5, 2),
     vitamins TEXT,
-    minerals TEXT
+    minerals TEXT,
+    user_id INT,
+    FOREIGN KEY (user_id) REFERENCES users(id)
 )''')
 
 # Home page route
@@ -76,7 +78,7 @@ def login():
                 session['username'] = username
                 session['role'] = user[3]  # Assuming role is in the fourth column
                 flash('Login successful!', 'success')
-                return redirect(url_for('user_profile'))
+                return redirect(url_for('home'))
             else:
                 error_msg = 'Invalid username or password.'
                 app.logger.info('Password mismatch for user: %s', username)
@@ -125,15 +127,20 @@ def manage_foods():
         carbs = request.form['carbs']
         vitamins = request.form['vitamins']
         minerals = request.form['minerals']
+        username = session['username']
         
-        cursor.execute('''INSERT INTO foods (name, calories, protein, fat, carbs, vitamins, minerals)
-                          VALUES (%s, %s, %s, %s, %s, %s, %s)''',
-                       (name, calories, protein, fat, carbs, vitamins, minerals))
+        # Fetch user id based on username
+        cursor.execute('''SELECT id FROM users WHERE username = %s''', (username,))
+        user_id = cursor.fetchone()[0]
+        
+        cursor.execute('''INSERT INTO foods (name, calories, protein, fat, carbs, vitamins, minerals, user_id)
+                          VALUES (%s, %s, %s, %s, %s, %s, %s, %s)''',
+                       (name, calories, protein, fat, carbs, vitamins, minerals, user_id))
         db.commit()
         flash('Food added successfully!', 'success')
         return redirect(url_for('manage_foods'))
 
-    cursor.execute('''SELECT * FROM foods''')
+    cursor.execute('''SELECT * FROM foods WHERE user_id = (SELECT id FROM users WHERE username = %s)''', (session['username'],))
     foods = cursor.fetchall()
     return render_template('foods.html', foods=foods)
 
@@ -141,7 +148,13 @@ def manage_foods():
 def search_foods():
     if request.method == 'POST':
         search_query = request.form['search_query']
-        cursor.execute('''SELECT * FROM foods WHERE name LIKE %s''', ('%' + search_query + '%',))
+        username = session['username']
+        
+        # Fetch user id based on username
+        cursor.execute('''SELECT id FROM users WHERE username = %s''', (username,))
+        user_id = cursor.fetchone()[0]
+        
+        cursor.execute('''SELECT * FROM foods WHERE user_id = %s AND name LIKE %s''', (user_id, '%' + search_query + '%'))
         foods = cursor.fetchall()
         return render_template('foods.html', foods=foods)
 
@@ -157,10 +170,15 @@ def add_food():
         carbs = request.form['carbs']
         vitamins = request.form['vitamins']
         minerals = request.form['minerals']
+        username = session['username']
         
-        cursor.execute('''INSERT INTO foods (name, calories, protein, fat, carbs, vitamins, minerals)
-                          VALUES (%s, %s, %s, %s, %s, %s, %s)''',
-                       (name, calories, protein, fat, carbs, vitamins, minerals))
+        # Fetch user id based on username
+        cursor.execute('''SELECT id FROM users WHERE username = %s''', (username,))
+        user_id = cursor.fetchone()[0]
+        
+        cursor.execute('''INSERT INTO foods (name, calories, protein, fat, carbs, vitamins, minerals, user_id)
+                          VALUES (%s, %s, %s, %s, %s, %s, %s, %s)''',
+                       (name, calories, protein, fat, carbs, vitamins, minerals, user_id))
         db.commit()
         flash('Food added successfully!', 'success')
         return redirect(url_for('manage_foods'))
@@ -227,7 +245,7 @@ def meal_plans():
         meal_plan_yearly = generate_meal_plan(user, 'yearly')
 
         return render_template('meal_plans.html', user=user, 
-                               meal_plan_daily=meal_plan_daily, 
+                               meal_plan_daily=meal_plan_daily,
                                meal_plan_weekly=meal_plan_weekly,
                                meal_plan_monthly=meal_plan_monthly,
                                meal_plan_yearly=meal_plan_yearly)
@@ -289,7 +307,7 @@ def generate_meal_plan(user, period):
 def logout():
     session.pop('username', None)
     session.pop('role', None)
-    flash('You have been logged out.', 'info')
+    flash('You have been logged out.', 'success')
     return redirect(url_for('home'))
 
 if __name__ == '__main__':
