@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meal Plans</title>
+</head>
+<body>
+    <h2>Meal Plans</h2>
+    
+    {% if 'username' in session %}
+        <h3>Hello, {{ user.username }}!</h3>
+
+        <!-- Daily Meal Plan -->
+        <h4>Daily Meal Plan</h4>
+        <ul>
+            {% for meal in meal_plan_daily['meals'] %}
+                <li>{{ meal.name }} - Calories: {{ meal.calories }}, Protein: {{ meal.protein }}, Fat: {{ meal.fat }}, Carbs: {{ meal.carbs }}</li>
+            {% endfor %}
+        </ul>
+        <p>Total: Calories: {{ meal_plan_daily['total']['calories'] }}, Protein: {{ meal_plan_daily['total']['protein'] }}, Fat: {{ meal_plan_daily['total']['fat'] }}, Carbs: {{ meal_plan_daily['total']['carbs'] }}</p>
+        
+        <!-- Weekly Meal Plan -->
+        <h4>Weekly Meal Plan</h4>
+        <ul>
+            {% for meal in meal_plan_weekly['meals'] %}
+                <li>{{ meal.name }} - Calories: {{ meal.calories }}, Protein: {{ meal.protein }}, Fat: {{ meal.fat }}, Carbs: {{ meal.carbs }}</li>
+            {% endfor %}
+        </ul>
+        <p>Total: Calories: {{ meal_plan_weekly['total']['calories'] }}, Protein: {{ meal_plan_weekly['total']['protein'] }}, Fat: {{ meal_plan_weekly['total']['fat'] }}, Carbs: {{ meal_plan_weekly['total']['carbs'] }}</p>
+
+        <!-- Monthly Meal Plan -->
+        <h4>Monthly Meal Plan</h4>
+        <ul>
+            {% for meal in meal_plan_monthly['meals'] %}
+                <li>{{ meal.name }} - Calories: {{ meal.calories }}, Protein: {{ meal.protein }}, Fat: {{ meal.fat }}, Carbs: {{ meal.carbs }}</li>
+            {% endfor %}
+        </ul>
+        <p>Total: Calories: {{ meal_plan_monthly['total']['calories'] }}, Protein: {{ meal_plan_monthly['total']['protein'] }}, Fat: {{ meal_plan_monthly['total']['fat'] }}, Carbs: {{ meal_plan_monthly['total']['carbs'] }}</p>
+
+        <!-- Yearly Meal Plan -->
+        <h4>Yearly Meal Plan</h4>
+        <ul>
+            {% for meal in meal_plan_yearly['meals'] %}
+                <li>{{ meal.name }} - Calories: {{ meal.calories }}, Protein: {{ meal.protein }}, Fat: {{ meal.fat }}, Carbs: {{ meal.carbs }}</li>
+            {% endfor %}
+        </ul>
+        <p>Total: Calories: {{ meal_plan_yearly['total']['calories'] }}, Protein: {{ meal_plan_yearly['total']['protein'] }}, Fat: {{ meal_plan_yearly['total']['fat'] }}, Carbs: {{ meal_plan_yearly['total']['carbs'] }}</p>
+
+        <p><a href="{{ url_for('home') }}">Home</a></p>
+    {% else %}
+        <p>Please log in to view your meal plans.</p>
+        <p><a href="{{ url_for('login') }}">Login</a></p>
+    {% endif %}
+</body>
+</html>
