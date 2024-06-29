@@ -1,33 +1,56 @@
+<!-- add_food.html -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Diet Recommendation System{% endblock %}</title>
+    <title>Add Food Item</title>
+    
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="/">Home</a></li>
-                {% if 'user_id' not in session %}
-                <li><a href="/login">Login</a></li>
-                <li><a href="/register">Register</a></li>
-                {% else %}
-                <li><a href="/profile">Profile</a></li>
-                <li><a href="/generate_diet_plan">Generate Diet Plan</a></li>
-                <li><a href="/search_foods">Search Foods</a></li>
-                <li><a href="/logout">Logout</a></li>
-                {% endif %}
-            </ul>
-        </nav>
-    </header>
-    <main>
-        {% block content %}
-        {% endblock %}
-    </main>
-    <footer>
-        <p>&copy; 2024 Your Diet Recommendation System</p>
-    </footer>
+    <div class="container mt-5">
+        <h2>Add New Food Item</h2>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <form method="POST" action="{{ url_for('add_food') }}">
+            <div class="form-group">
+                <label for="name">Food Name:</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="calories">Calories:</label>
+                <input type="number" class="form-control" id="calories" name="calories" required>
+            </div>
+            <div class="form-group">
+                <label for="protein">Protein (g):</label>
+                <input type="number" step="any" class="form-control" id="protein" name="protein" required>
+            </div>
+            <div class="form-group">
+                <label for="fat">Fat (g):</label>
+                <input type="number" step="any" class="form-control" id="fat" name="fat" required>
+            </div>
+            <div class="form-group">
+                <label for="carbs">Carbohydrates (g):</label>
+                <input type="number" step="any" class="form-control" id="carbs" name="carbs" required>
+            </div>
+            <div class="form-group">
+                <label for="vitamins">Vitamins:</label>
+                <textarea class="form-control" id="vitamins" name="vitamins" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="minerals">Minerals:</label>
+                <textarea class="form-control" id="minerals" name="minerals" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Food</button>
+        </form>
+    </div>
 </body>
 </html>
