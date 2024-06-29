@@ -3,18 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome</title>
+    <title>Diet Plans</title>
 </head>
 <body>
-    <h2>Welcome to the Diet Recommendation System</h2>
-    {% if 'user_id' in session %}
-        <p><a href="/profile">View Profile</a></p>
-        <p><a href="/generate_diet_plan">Generate Diet Plan</a></p>
-        <p><a href="/search_foods">Search Foods</a></p>
-        <p><a href="/logout">Logout</a></p>
+    <h2>Diet Plans</h2>
+    
+    <h3>User: {{ user[1] }}</h3>
+    
+    {% if diet_plans %}
+        <ul>
+            {% for plan in diet_plans %}
+                <li>Date: {{ plan[2] }}</li>
+                <li>Meals: {{ plan[3] }}</li>
+                <li>Calories: {{ plan[4] }}</li>
+                <li>Protein: {{ plan[5] }} g</li>
+                <li>Fat: {{ plan[6] }} g</li>
+                <li>Carbs: {{ plan[7] }} g</li>
+                <hr>
+            {% endfor %}
+        </ul>
     {% else %}
-        <p><a href="/login">Login</a></p>
-        <p><a href="/register">Register</a></p>
+        <p>No diet plans found.</p>
     {% endif %}
+    
+    <p><a href="{{ url_for('home') }}">Home</a></p>
 </body>
 </html>
