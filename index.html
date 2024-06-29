@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+</head>
+<body>
+    <h2>Welcome to the Diet Recommendation System</h2>
+    {% if 'user_id' in session %}
+        <p><a href="/profile">View Profile</a></p>
+        <p><a href="/generate_diet_plan">Generate Diet Plan</a></p>
+        <p><a href="/search_foods">Search Foods</a></p>
+        <p><a href="/logout">Logout</a></p>
+    {% else %}
+        <p><a href="/login">Login</a></p>
+        <p><a href="/register">Register</a></p>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+</head>
+<body>
+    <h2>Profile</h2>
+    <p><strong>Username:</strong> {{ user.username }}</p>
+    <p><strong>Age:</strong> {{ user.age }}</p>
+    <p><strong>Weight:</strong> {{ user.weight }}</p>
+    <p><strong>Height:</strong> {{ user.height }}</p>
+    <p><strong>Preferences:</strong> {{ user.preferences }}</p>
+    <p><strong>Allergies:</strong> {{ user.allergies }}</p>
+    <p><strong>Health Goals:</strong> {{ user.health_goals }}</p>
+
+    <h3>Update Profile</h3>
+    <form method="POST" action="/update_profile">
+        <label for="age">Age:</label><br>
+        <input type="text" id="age" name="age" value="{{ user.age }}"><br><br>
+        
+        <label for="weight">Weight:</label><br>
+        <input type="text" id="weight" name="weight" value="{{ user.weight }}"><br><br>
+        
+        <label for="height">Height:</label><br>
+        <input type="text" id="height" name="height" value="{{ user.height }}"><br><br>
+        
+        <label for="preferences">Preferences:</label><br>
+        <textarea id="preferences" name="preferences">{{ user.preferences }}</textarea><br><br>
+        
+        <label for="allergies">Allergies:</label><br>
+        <textarea id="allergies" name="allergies">{{ user.allergies }}</textarea><br><br>
+        
+        <label for="health_goals">Health Goals:</label><br>
+        <textarea id="health_goals" name="health_goals">{{ user.health_goals }}</textarea><br><br>
+        
+        <button type="submit">Update Profile</button>
+    </form>
+</body>
+</html>
