@@ -1,0 +1,107 @@
+/* Body and Container */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    background-image: url(background.jpg);
+    padding-top: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    animation: fadeInContainer 1.5s ease;
+}
+
+/* Keyframes for Container Animation */
+@keyframes fadeInContainer {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Flash Messages */
+.alert {
+    margin-bottom: 15px;
+    animation: fadeInAlert 1.5s ease;
+}
+
+/* Keyframes for Flash Messages Animation */
+@keyframes fadeInAlert {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Search Form */
+.input-group {
+    margin-bottom: 20px;
+    animation: slideInInputGroup 1.5s ease;
+}
+
+/* Keyframes for Search Form Animation */
+@keyframes slideInInputGroup {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Table */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    animation: fadeInTable 1.5s ease;
+}
+
+/* Keyframes for Table Animation */
+@keyframes fadeInTable {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Heading Animation */
+h2 {
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-bottom: 10px solid #6a0dad; /* Deep purple color */
+    animation: slideInFromLeft 1.5s ease;
+}
+
+/* Keyframes for Heading Animation */
+@keyframes slideInFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

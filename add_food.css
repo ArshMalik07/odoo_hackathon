@@ -1,0 +1,113 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    background-image: url(img_bg.jpg);
+    padding: 20px;
+    text-align: center;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd; /* Border around the container */
+    animation: fadeInContainer 1.5s ease; /* Animation for fadeInContainer */
+}
+
+@keyframes fadeInContainer {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #6a0dad; /* Deep purple color */
+    animation: fadeInHeading 1.5s ease; /* Animation for fadeInHeading */
+}
+
+@keyframes fadeInHeading {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.alert {
+    margin-bottom: 15px;
+    animation: fadeInAlert 1.5s ease; /* Animation for fadeInAlert */
+}
+
+@keyframes fadeInAlert {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left; /* Align text to the left */
+}
+
+label {
+    font-weight: bold;
+    display: block; /* Make label display as block to stack them vertically */
+}
+
+input[type="text"],
+input[type="number"],
+textarea {
+    width: 100%; /* Full width for inputs and textareas */
+    padding: 8px; /* Padding for inputs and textareas */
+    border: 1px solid #ccc; /* Border for inputs and textareas */
+    border-radius: 4px; /* Border radius for inputs and textareas */
+    box-sizing: border-box; /* Box sizing to include padding and border in width */
+}
+
+textarea.form-control {
+    height: 100px; /* Set height for textarea */
+}
+
+.btn-primary {
+    background-color: lightblue; /* Light blue color */
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    animation: fadeInButton 1.5s ease; /* Animation for fadeInButton */
+}
+
+.btn-primary:hover {
+    background-color: blue; /* Dark blue color on hover */
+}
+
+@keyframes fadeInButton {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

@@ -1,0 +1,101 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    background-image: url(img_bg.jpg);
+    padding: 20px;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: yellowgreen;
+    color: #fff;
+    border-radius: 8px;
+    animation: fadeInUp 1s ease-out;
+}
+
+h3 {
+    margin-top: 0;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    animation: fadeInLeft 1s ease-out;
+}
+
+h4 {
+    margin-top: 20px;
+    border-bottom: 10px solid lightgreen;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    text-align: left;
+    animation: fadeInRight 1s ease-out;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Example of a decent font */
+    animation: fadeIn 1s ease-out;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+p {
+    margin-bottom: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Example of a decent font */
+    animation: fadeIn 1s ease-out;
+}
+
+a {
+    color: #6a0dad;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

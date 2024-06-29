@@ -1,0 +1,25 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    padding: 20px;
+    text-align: center;
+}
+
+h2 {
+    color: #6a0dad; /* Deep purple color */
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+a {
+    color: #6a0dad; /* Deep purple color */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #4d0a86; /* Darker shade of deep purple */
+}

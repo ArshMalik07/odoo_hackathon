@@ -1,0 +1,94 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    padding: 20px;
+    text-align: center;
+    background-image: url(img_bg.jpg);
+    background-size: cover; /* Cover the entire viewport */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    color: #fffefe; /* Dark gray text color for better readability */
+    font-size: 16px; /* Adjust font size as needed */
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd; /* Border around the container */
+    animation: fadeInContainer 1.5s ease;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #6a0dad; /* Deep purple color */
+    animation: fadeInHeading 1.5s ease;
+}
+
+.alert {
+    margin-bottom: 15px;
+    animation: fadeInAlert 1.5s ease;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left; /* Align text to the left */
+    animation: slideInFormGroup 1.5s ease;
+}
+
+label {
+    font-weight: bold;
+    display: block; /* Make label display as block to stack them vertically */
+}
+
+input[type="text"],
+input[type="number"],
+textarea {
+    width: 100%; /* Full width for inputs and textareas */
+    padding: 8px; /* Padding for inputs and textareas */
+    border: 1px solid #ccc; /* Border for inputs and textareas */
+    border-radius: 4px; /* Border radius for inputs and textareas */
+    box-sizing: border-box; /* Box sizing to include padding and border in width */
+    animation: fadeInInput 1.5s ease;
+}
+
+.btn-primary {
+    background-color: lightblue; /* Light blue button background */
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    animation: slideInButton 1.5s ease;
+}
+
+.btn-primary:hover {
+    background-color: blue; /* Darker shade of blue on hover */
+}
+
+/* User Profile Styles */
+p {
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: tomato; 
+    background-color: white;
+    display: center;
+    flex-direction: row;
+    animation: fadeInProfileText 1.5s ease;
+}
+
+a {
+    color: #6a0dad;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #333; /* Dark gray text color */
+}

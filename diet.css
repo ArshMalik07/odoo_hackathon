@@ -1,0 +1,60 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    padding: 20px;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #6a0dad; /* Deep purple color */
+    font-weight: bold; /* Bold text */
+    transition: color 0.3s; /* Smooth color transition */
+}
+
+h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-weight: bold; /* Bold text */
+    color: #333; /* Dark gray text color */
+    transition: color 0.3s; /* Smooth color transition */
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 10px;
+    display: inline-block; /* Display items horizontally */
+    margin-right: 20px; /* Space between items */
+    font-weight: bold; /* Bold text */
+    color: #555; /* Medium gray text color */
+    transition: color 0.3s; /* Smooth color transition */
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #ddd; /* Light gray border */
+    margin: 10px 0; /* Space above and below the horizontal rule */
+    transition: border-color 0.3s; /* Smooth border color transition */
+}
+
+p {
+    margin-bottom: 20px;
+    color: #555; /* Medium gray text color */
+    transition: color 0.3s; /* Smooth color transition */
+}
+
+a {
+    color: #6a0dad;
+    text-decoration: none;
+    transition: color 0.3s; /* Smooth color transition */
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #4b0082; /* Darker purple on hover */
+}
